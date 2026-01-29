@@ -41,18 +41,11 @@ export function Navigation() {
             >
               {t.nav.plans}
             </Link>
-            <Link
-              href="/contact"
-              className="text-foreground hover:text-primary transition-colors"
-              onClick={handleNavClick}
-            >
-              {t.nav.contact}
-            </Link>
             <Button
               asChild
               className="gradient-btn"
             >
-              <Link href="/contact" onClick={handleNavClick}>
+              <Link href="/plans" onClick={handleNavClick}>
                 {t.home.hero.getStarted}
               </Link>
             </Button>
@@ -81,18 +74,11 @@ export function Navigation() {
             >
               {t.nav.plans}
             </Link>
-            <Link
-              href="/contact"
-              className="block text-foreground hover:text-primary transition-colors"
-              onClick={handleNavClick}
-            >
-              {t.nav.contact}
-            </Link>
             <Button
               asChild
               className="w-full gradient-btn"
             >
-              <Link href="/contact" onClick={handleNavClick}>
+              <Link href="/plans" onClick={handleNavClick}>
                 {t.home.hero.getStarted}
               </Link>
             </Button>

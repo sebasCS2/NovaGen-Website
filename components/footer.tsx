@@ -36,14 +36,6 @@ export function Footer() {
                   {t.nav.plans}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
-                >
-                  {t.nav.contact}
-                </Link>
-              </li>
             </ul>
           </div>
 
