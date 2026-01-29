@@ -4,11 +4,11 @@ import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 
-const inputStyles = "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+const inputStyles = "flex h-10 w-full rounded-md border border-input bg-white text-black px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 
-const textareaStyles = "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
+const textareaStyles = "flex min-h-[80px] w-full rounded-md border border-input bg-white text-black px-3 py-2 text-sm ring-offset-background placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
 
-const selectStyles = "flex h-10 w-[130px] items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+const selectStyles = "flex h-10 w-[130px] items-center justify-between rounded-md border border-input bg-white text-black px-3 py-2 text-sm ring-offset-background placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -19,11 +19,54 @@ export function ContactForm() {
     company: "",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    alert("Thank you for your interest! We will contact you shortly.")
+    setIsSubmitting(true)
+    setSubmitStatus("idle")
+
+    const webhookData = {
+      fullName: formData.name,
+      email: formData.email,
+      phone: `${formData.countryCode} ${formData.phone}`,
+      businessName: formData.company,
+      businessDescription: formData.message || "Not provided",
+      submittedAt: new Date().toISOString(),
+    }
+
+    try {
+      const response = await fetch(
+        "https://pruebas-estudio-n8n.trw7ae.easypanel.host/webhook-test/novagen-website",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(webhookData),
+        }
+      )
+
+      if (response.ok) {
+        setSubmitStatus("success")
+        setFormData({
+          name: "",
+          email: "",
+          countryCode: "+1",
+          phone: "",
+          company: "",
+          message: "",
+        })
+      } else {
+        setSubmitStatus("error")
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
+      setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleInputChange = (field: string, value: string) => {
@@ -36,6 +79,21 @@ export function ContactForm() {
         <h2 className="text-2xl md:text-3xl font-bold mb-3 text-card-foreground">Get in Touch</h2>
         <p className="text-muted-foreground">Fill out the form below and we will get back to you shortly.</p>
       </div>
+
+      {submitStatus === "success" && (
+        <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-800 rounded-lg text-center">
+          <p className="font-semibold">Thank you for reaching out!</p>
+          <p className="text-sm mt-1">Your message has been sent successfully. We will contact you shortly.</p>
+        </div>
+      )}
+
+      {submitStatus === "error" && (
+        <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-800 rounded-lg text-center">
+          <p className="font-semibold">Something went wrong</p>
+          <p className="text-sm mt-1">Please try again or contact us directly at support@novagenengine.com</p>
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium text-card-foreground">
@@ -71,7 +129,7 @@ export function ContactForm() {
 
         <div className="space-y-2">
           <label htmlFor="phone" className="text-sm font-medium text-card-foreground">
-            Phone Number
+            Phone Number *
           </label>
           <div className="flex gap-2">
             <select
@@ -106,6 +164,7 @@ export function ContactForm() {
               id="phone"
               name="phone"
               type="tel"
+              required
               placeholder="123 456 7890"
               value={formData.phone}
               onChange={(e) => handleInputChange("phone", e.target.value)}
@@ -147,10 +206,11 @@ export function ContactForm() {
 
         <Button
           type="submit"
+          disabled={isSubmitting}
           className="w-full gradient-btn text-lg py-6"
           size="lg"
         >
-          Start Now
+          {isSubmitting ? "Sending..." : "Start Now"}
         </Button>
       </form>
     </Card>
