@@ -37,18 +37,17 @@ export function ContactForm() {
     }
 
     try {
-      const response = await fetch(
-        "https://pruebas-estudio-n8n.trw7ae.easypanel.host/webhook-test/novagen-website",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(webhookData),
-        }
-      )
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(webhookData),
+      })
 
-      if (response.ok) {
+      const data = await response.json()
+
+      if (response.ok && data.success) {
         setSubmitStatus("success")
         setFormData({
           name: "",
