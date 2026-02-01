@@ -114,58 +114,54 @@ export default function ContactPage() {
       {/* Contact Form & Info */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-6xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">{t.contact.form.title}</h2>
+              <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">{t.contact.form.subtitle}</p>
+            </div>
+          </ScrollReveal>
+
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <ScrollReveal>
-              <div className="space-y-8">
-                <div>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">{t.contact.form.title}</h2>
-                  <p className="text-muted-foreground leading-relaxed">{t.contact.form.subtitle}</p>
-                </div>
-
-                <div className="space-y-6">
-                  <Card className="gradient-border p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Mail className="text-primary" size={20} />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold mb-1 text-card-foreground">{t.contact.form.emailUs}</h3>
-                        <a
-                          href="mailto:support@novagenengine.com"
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          support@novagenengine.com
-                        </a>
-                      </div>
+              <div className="space-y-6">
+                <Card className="gradient-border p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Mail className="text-primary" size={20} />
                     </div>
-                  </Card>
-
-                  <Card className="gradient-border p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Phone className="text-primary" size={20} />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold mb-1 text-card-foreground">{t.contact.form.callUs}</h3>
-                        <p className="text-muted-foreground">+1 (645) 400-5780</p>
-                        <p className="text-sm text-muted-foreground mt-1">{t.contact.form.hours}</p>
-                      </div>
+                    <div>
+                      <h3 className="font-semibold mb-1 text-card-foreground">{t.contact.form.emailUs}</h3>
+                      <a
+                        href="mailto:contact@novagenengine.com"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        contact@novagenengine.com
+                      </a>
                     </div>
-                  </Card>
-                </div>
+                  </div>
+                </Card>
+
+                <Card className="gradient-border p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Phone className="text-primary" size={20} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1 text-card-foreground">{t.contact.form.callUs}</h3>
+                      <p className="text-muted-foreground">+1 (645) 400-5780</p>
+                      <p className="text-sm text-muted-foreground mt-1">{t.contact.form.hours}</p>
+                    </div>
+                  </div>
+                </Card>
               </div>
             </ScrollReveal>
-          </div>
-        </div>
-      </section>
 
-      {/* Contact Form */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-2xl mx-auto">
-          <ScrollReveal>
-            <ContactForm />
-          </ScrollReveal>
+            {/* Contact Form */}
+            <ScrollReveal delay={200}>
+              <ContactForm />
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -178,7 +174,7 @@ export default function ContactPage() {
             </h2>
             <p className="text-xl text-secondary-foreground/80">{t.contact.finalCta.subtitle}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:support@novagenengine.com">
+              <a href="mailto:contact@novagenengine.com">
                 <Button
                   size="lg"
                   className="gradient-btn"

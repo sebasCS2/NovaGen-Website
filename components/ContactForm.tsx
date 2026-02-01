@@ -92,10 +92,6 @@ export function ContactForm() {
 
   return (
     <Card className="gradient-border p-8 md:p-10">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold mb-3 text-card-foreground">Get in Touch</h2>
-        <p className="text-muted-foreground">Fill out the form below and we will get back to you shortly.</p>
-      </div>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium text-card-foreground">

@@ -202,22 +202,22 @@ export const translations = {
         q1: {
           question: "Why is the first month more expensive?",
           answer:
-            "The first month includes comprehensive analysis, strategy development, and initial implementation. This foundational work ensures maximum results in subsequent months.",
+            "The first month includes comprehensive strategy development, system setup, KPI baselining, funnel architecture, and initial execution specific to your selected plan (Omega, Delta, or Alpha). This foundational work creates the infrastructure necessary for scalable, long-term growth in subsequent months.",
         },
         q2: {
           question: "What if I don't see results?",
           answer:
-            "We work with performance-based metrics and adjust strategies based on data. Our track record shows consistent results, but we're committed to finding what works for your specific business.",
+            "NovaGen operates on performance tracking, continuous optimization, and data-driven execution aligned with the scope of each plan. We monitor real metrics closely and make strategic adjustments based on actual performance data to ensure we're always moving toward your growth objectives.",
         },
         q3: {
-          question: "Can I switch plans later?",
+          question: "What is NovaGen's approach to brand scaling?",
           answer:
-            "Absolutely. As your business grows, you can upgrade to access more comprehensive services. We'll work with you to find the right fit at every stage.",
+            "NovaGen focuses on building scalable systems, establishing authority, creating performance infrastructure, and developing long-term growth engines rather than relying on short-term tactics. Our Brandscaling methodology ensures sustainable expansion through strategic positioning and systematic execution.",
         },
         q4: {
           question: "What's included in all plans?",
           answer:
-            "All plans include our core methodology: social media management, operational consulting, performance tracking, and strategic guidance tailored to your business goals.",
+            "All plans share a core foundation including strategy development, performance tracking, continuous optimization, and execution discipline. Higher tiers (Delta and Alpha) increase the depth of services, speed of execution, automation capabilities, and level of ownership we take in your growth journey.",
         },
       },
       cta: {
