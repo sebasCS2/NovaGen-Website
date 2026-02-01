@@ -63,10 +63,10 @@ export function Footer() {
               <li className="flex items-center gap-2 text-secondary-foreground/80">
                 <Mail size={16} />
                 <a
-                  href="mailto:support@novagenengine.com"
+                  href="mailto:contact@novagenengine.com"
                   className="hover:text-secondary-foreground transition-colors"
                 >
-                  support@novagenengine.com
+                  contact@novagenengine.com
                 </a>
               </li>
               <li className="flex items-center gap-2 text-secondary-foreground/80">
