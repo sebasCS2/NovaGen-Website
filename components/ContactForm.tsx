@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { CheckCircle } from "lucide-react"
+import { useTranslation } from "@/components/translation-context"
 
 const inputStyles = "flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 
@@ -12,6 +13,7 @@ const textareaStyles = "flex min-h-[80px] w-full rounded-md border border-gray-3
 const selectStyles = "flex h-10 w-[130px] items-center justify-between rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 
 export function ContactForm() {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -59,10 +61,10 @@ export function ContactForm() {
           message: "",
         })
       } else {
-        setError("Something went wrong. Please try again.")
+        setError(t.contact.form.errorGeneric)
       }
     } catch (err) {
-      setError("Failed to submit. Please check your connection and try again.")
+      setError(t.contact.form.errorConnection)
     } finally {
       setIsSubmitting(false)
     }
@@ -77,13 +79,13 @@ export function ContactForm() {
       <Card className="gradient-border p-8 md:p-10">
         <div className="text-center py-8">
           <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-card-foreground">Thank You!</h2>
-          <p className="text-muted-foreground mb-6">Your message has been sent successfully. We will get back to you shortly.</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-card-foreground">{t.contact.form.successTitle}</h2>
+          <p className="text-muted-foreground mb-6">{t.contact.form.successMessage}</p>
           <Button
             onClick={() => setIsSuccess(false)}
             className="gradient-btn"
           >
-            Send Another Message
+            {t.contact.form.sendAnother}
           </Button>
         </div>
       </Card>
@@ -95,14 +97,14 @@ export function ContactForm() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium text-card-foreground">
-            Full Name *
+            {t.contact.form.fullName} *
           </label>
           <input
             id="name"
             name="name"
             type="text"
             required
-            placeholder="John Doe"
+            placeholder={t.contact.form.namePlaceholder}
             value={formData.name}
             onChange={(e) => handleInputChange("name", e.target.value)}
             className={inputStyles}
@@ -111,14 +113,14 @@ export function ContactForm() {
 
         <div className="space-y-2">
           <label htmlFor="email" className="text-sm font-medium text-card-foreground">
-            Email Address *
+            {t.contact.form.email} *
           </label>
           <input
             id="email"
             name="email"
             type="email"
             required
-            placeholder="john@company.com"
+            placeholder={t.contact.form.emailPlaceholder}
             value={formData.email}
             onChange={(e) => handleInputChange("email", e.target.value)}
             className={inputStyles}
@@ -127,7 +129,7 @@ export function ContactForm() {
 
         <div className="space-y-2">
           <label htmlFor="phone" className="text-sm font-medium text-card-foreground">
-            Phone Number *
+            {t.contact.form.phone} *
           </label>
           <div className="flex gap-2">
             <select
@@ -163,7 +165,7 @@ export function ContactForm() {
               name="phone"
               type="tel"
               required
-              placeholder="123 456 7890"
+              placeholder={t.contact.form.phonePlaceholder}
               value={formData.phone}
               onChange={(e) => handleInputChange("phone", e.target.value)}
               className={`flex-1 ${inputStyles}`}
@@ -173,14 +175,14 @@ export function ContactForm() {
 
         <div className="space-y-2">
           <label htmlFor="company" className="text-sm font-medium text-card-foreground">
-            Business Name *
+            {t.contact.form.company} *
           </label>
           <input
             id="company"
             name="company"
             type="text"
             required
-            placeholder="Your Business Inc."
+            placeholder={t.contact.form.companyPlaceholder}
             value={formData.company}
             onChange={(e) => handleInputChange("company", e.target.value)}
             className={inputStyles}
@@ -189,12 +191,12 @@ export function ContactForm() {
 
         <div className="space-y-2">
           <label htmlFor="message" className="text-sm font-medium text-card-foreground">
-            Brief Business Description <span className="text-muted-foreground">(optional)</span>
+            {t.contact.form.message} <span className="text-muted-foreground">{t.contact.form.optional}</span>
           </label>
           <textarea
             id="message"
             name="message"
-            placeholder="Tell us a bit about your business and goals..."
+            placeholder={t.contact.form.messagePlaceholder}
             rows={4}
             value={formData.message}
             onChange={(e) => handleInputChange("message", e.target.value)}
@@ -212,7 +214,7 @@ export function ContactForm() {
           className="w-full gradient-btn text-lg py-6"
           size="lg"
         >
-          {isSubmitting ? "Sending..." : "Start Now"}
+          {isSubmitting ? t.contact.form.sending : t.contact.form.submit}
         </Button>
       </form>
     </Card>
