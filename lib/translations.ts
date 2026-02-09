@@ -115,8 +115,7 @@ export const translations = {
           companyName: "Polarizados GOLD",
           companyType: "Automotive Customization & Detailing",
         },
-      },
-      mrr: {
+        mrr: {
           name: "MR Roofing",
           industry: "Roofing Services \u2022 4-Month Alpha Transformation",
           baselineRevenue: "BASELINE REVENUE",
