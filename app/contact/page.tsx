@@ -90,20 +90,20 @@ export default function ContactPage() {
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                 <div className="text-center space-y-2">
-                  <div className="text-3xl md:text-4xl font-bold gradient-text">+331%</div>
+                  <div className="text-3xl md:text-4xl font-bold gradient-text">+400%</div>
                   <div className="text-sm text-muted-foreground">{t.contact.impact.peakProfit}</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-3xl md:text-4xl font-bold gradient-text">+178%</div>
+                  <div className="text-3xl md:text-4xl font-bold gradient-text">+190%</div>
                   <div className="text-sm text-muted-foreground">{t.contact.impact.revenueGrowth}</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-3xl md:text-4xl font-bold gradient-text">44.9%</div>
+                  <div className="text-3xl md:text-4xl font-bold gradient-text">34%</div>
                   <div className="text-sm text-muted-foreground">{t.contact.impact.peakMargin}</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-3xl md:text-4xl font-bold gradient-text">7</div>
-                  <div className="text-sm text-muted-foreground">{t.contact.impact.monthsToPeak}</div>
+                  <div className="text-3xl md:text-4xl font-bold gradient-text">3+</div>
+                  <div className="text-sm text-muted-foreground">{t.contact.impact.clientsServed}</div>
                 </div>
               </div>
             </Card>

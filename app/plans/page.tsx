@@ -162,7 +162,7 @@ export default function PlansPage() {
               <p className="text-xl text-muted-foreground">{t.plans.roi.subtitle}</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               <Card className="gradient-border p-8 space-y-4">
                 <h3 className="text-xl font-semibold text-card-foreground">{t.plans.roi.tpn.title}</h3>
                 <p className="text-card-foreground/80 text-sm">{t.plans.roi.tpn.description}</p>
@@ -179,7 +179,7 @@ export default function PlansPage() {
                 </div>
               </Card>
 
-              <Card className="gradient-border p-8 space-y-4 ring-2 ring-primary">
+              <Card className="gradient-border p-8 space-y-4">
                 <h3 className="text-xl font-semibold text-card-foreground">{t.plans.roi.gld.title}</h3>
                 <p className="text-card-foreground/80 text-sm">{t.plans.roi.gld.description}</p>
                 <div className="pt-4 border-t border-border space-y-4">
@@ -193,6 +193,24 @@ export default function PlansPage() {
                   <div>
                     <div className="text-sm text-muted-foreground">{t.plans.roi.gld.peakIncrease}</div>
                     <div className="text-2xl font-bold gradient-text">+331%</div>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="gradient-border p-8 space-y-4 ring-2 ring-primary">
+                <h3 className="text-xl font-semibold text-card-foreground">{t.plans.roi.mrr.title}</h3>
+                <p className="text-card-foreground/80 text-sm">{t.plans.roi.mrr.description}</p>
+                <div className="pt-4 border-t border-border space-y-4">
+                  <div>
+                    <div className="text-sm text-muted-foreground">{t.plans.roi.mrr.peakProfit}</div>
+                    <div className="text-3xl font-bold gradient-text">{formatPrice(40000)}</div>
+                    <div className="text-xs text-muted-foreground">
+                      Month 4 ({t.plans.roi.mrr.vs} {formatPrice(8000)} {t.plans.roi.mrr.baseline})
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-muted-foreground">{t.plans.roi.mrr.peakIncrease}</div>
+                    <div className="text-2xl font-bold gradient-text">+190%</div>
                   </div>
                 </div>
               </Card>

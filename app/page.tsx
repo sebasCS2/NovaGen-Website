@@ -330,6 +330,90 @@ export default function HomePage() {
         </section>
       </ScrollReveal>
 
+      {/* Case Study - MR Roofing */}
+      <ScrollReveal>
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted">
+          <div className="max-w-5xl mx-auto">
+            <Card className="gradient-border p-8 md:p-12 mb-8">
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold mb-2 text-card-foreground">{t.home.caseStudies.mrr.name}</h3>
+                <p className="text-muted-foreground">{t.home.caseStudies.mrr.industry}</p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-sm text-muted-foreground mb-1">{t.home.caseStudies.mrr.baselineRevenue}</div>
+                    <div className="text-3xl font-bold text-card-foreground">$40K</div>
+                    <div className="text-sm text-muted-foreground">{t.home.caseStudies.mrr.monthlyAverage}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-muted-foreground mb-1">{t.home.caseStudies.mrr.peakMonth}</div>
+                    <div className="text-3xl font-bold gradient-text">$116K</div>
+                    <div className="text-sm text-muted-foreground">{t.home.caseStudies.mrr.monthlyRevenue}</div>
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-sm text-muted-foreground mb-1">{t.home.caseStudies.mrr.netMargin}</div>
+                    <div className="text-3xl font-bold gradient-text">$8K → $40K</div>
+                    <div className="text-sm text-muted-foreground">{t.home.caseStudies.mrr.netMarginGrowth}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-muted-foreground mb-1">{t.home.caseStudies.mrr.clientsPerWeek}</div>
+                    <div className="text-3xl font-bold gradient-text">1-2 → 4-8</div>
+                    <div className="text-sm text-muted-foreground">{t.home.caseStudies.mrr.clientsGrowth}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-8 border-t border-[#EDEDED]">
+                <h4 className="font-semibold mb-4 text-card-foreground">{t.home.caseStudies.mrr.keyTransformations}</h4>
+                <ul className="grid md:grid-cols-2 gap-3 text-sm text-muted-foreground">
+                  {t.home.caseStudies.mrr.transforms.map((transform, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="text-primary font-bold">{"•"}</span>
+                      <span>{transform}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-6 grid grid-cols-2 gap-4">
+                <div className="p-4 bg-muted/30 rounded-lg">
+                  <div className="text-xs text-muted-foreground mb-1">{t.home.caseStudies.mrr.headcount}</div>
+                  <div className="text-sm font-medium text-card-foreground">{t.home.caseStudies.mrr.teamGrowth}</div>
+                </div>
+                <div className="p-4 bg-muted/30 rounded-lg">
+                  <div className="text-xs text-muted-foreground mb-1">{t.home.caseStudies.mrr.profitability}</div>
+                  <div className="text-sm font-medium text-card-foreground">{t.home.caseStudies.mrr.profitabilityGrowth}</div>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-primary/5 rounded-xl border border-primary">
+                <div className="text-sm text-muted-foreground mb-1">{t.home.caseStudies.mrr.additionalProfit}</div>
+                <div className="text-2xl font-bold gradient-text">$128,000</div>
+                <div className="text-xs text-muted-foreground mt-1">{t.home.caseStudies.mrr.beyondBaseline}</div>
+              </div>
+            </Card>
+
+            <Card className="gradient-border p-8">
+              <div className="flex flex-col items-center text-center space-y-4">
+                <Quote className="text-primary" size={40} />
+                <p className="text-lg italic text-card-foreground leading-relaxed max-w-3xl">
+                  {t.home.caseStudies.mrr.testimonial}
+                </p>
+                <div className="pt-4">
+                  <div className="font-semibold text-card-foreground">{t.home.caseStudies.mrr.companyName}</div>
+                  <div className="text-sm text-muted-foreground">{t.home.caseStudies.mrr.companyType}</div>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </section>
+      </ScrollReveal>
+
       {/* CTA Section */}
       <ScrollReveal>
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
